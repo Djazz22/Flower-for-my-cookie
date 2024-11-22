@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ffebf2; /* Soft pink background */
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+}
+
+.flower-field {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.flower {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: pink;
+    border-radius: 50%;
+    margin: 20px;
+    animation: float 5s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.flower:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Petals */
+.flower::before,
+.flower::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: pink;
+    border-radius: 50%;
+}
+
+.flower::before {
+    top: -50px;
+    left: 0;
+}
+
+.flower::after {
+    top: 0;
+    left: -50px;
+}
+
+/* Center of Flower */
+.flower::after {
+    background: #ffcccb;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Romantic message styling */
+.message {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    color: #ff1493; /* Deep pink */
+    animation: fadeIn 3s ease-in-out;
+}
+
+.message h1 {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+}
+
+.message p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Animation for the romantic message */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
